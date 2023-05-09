@@ -17,12 +17,9 @@ class SimpleReport:
             if produto["nome_da_empresa"] not in empresas:
                 empresas[produto["nome_da_empresa"]] = 0
             empresas[produto["nome_da_empresa"]] += 1
-        dfma = min(df)
-        dvmp = min(dv)
-        ecmp = max(empresas, key=empresas.get)
 
         return (
-            f"Data de fabricação mais antiga: {dfma}\n"
-            f"Data de validade mais próxima: {dvmp}\n"
-            f"Empresa com mais produtos: {ecmp}"
+            f"Data de fabricação mais antiga: {min(df)}\n"
+            f"Data de validade mais próxima: {min(dv)}\n"
+            f"Empresa com mais produtos: {max(empresas, key=empresas.get)}"
         )

@@ -7,7 +7,7 @@ class CompleteReport(SimpleReport):
     def generate(produtos):
         report = SimpleReport.generate(produtos)
         report += "\nProdutos estocados por empresa:"
-        allproducts = Counter([p["nome_do_produto"] for p in produtos])
+        allproducts = Counter([p["nome_da_empresa"] for p in produtos])
         for name, qty in allproducts.items():
             report += f"\n- {name}: {qty}"
         return report

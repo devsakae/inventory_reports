@@ -9,7 +9,7 @@ def test_cria_produto():
         data_de_fabricacao="2023-05-10",
         data_de_validade="2024-06-29",
         numero_de_serie="0010052023",
-        instrucoes_de_armazenamento="Guardar em local seco e arejado",
+        instrucoes_de_armazenamento="Guardar em local seco",
     )
 
     assert arroz.id == 1
@@ -18,4 +18,4 @@ def test_cria_produto():
     assert arroz.data_de_fabricacao == "2023-05-10"
     assert arroz.data_de_validade == "2024-06-29"
     assert arroz.numero_de_serie == "0010052023"
-    assert arroz.instrucoes_de_armazenamento == "Guardar em local seco e arejado"
+    assert arroz.instrucoes_de_armazenamento == "Guardar em local seco"

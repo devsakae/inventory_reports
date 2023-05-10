@@ -8,13 +8,13 @@ from inventory_report.reports.complete_report import CompleteReport
 class Inventory:
     @staticmethod
     def import_data(path, type):
-        if path.endswith(".csv"):
-            produtos = CsvImporter.import_data(path)
-        if path.endswith(".json"):
-            produtos = JsonImporter.import_data(path)
-        if path.endswith(".xml"):
-            produtos = XmlImporter.import_data(path)
+        file = {
+            "csv": CsvImporter,
+            "json": JsonImporter,
+            "xml": XmlImporter
+        }
+        filetype = path.split(".")[1]
         if type == "simples":
-            return SimpleReport.generate(produtos)
+            return SimpleReport.generate(file[filetype].import_data(path))
         if type == "completo":
-            return CompleteReport.generate(produtos)
+            return CompleteReport.generate(file[filetype].import_data(path))
